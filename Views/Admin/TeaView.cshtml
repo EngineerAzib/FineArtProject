@@ -1,0 +1,92 @@
+﻿@model IEnumerable<FineArtProject.Context.teacher>
+
+
+@{
+    Layout = "~/Views/Shared/_AdministratorLayout.cshtml";
+
+}
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+<h4 class="py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Basic Tables</h4>
+
+<div class="card">
+    <h5 class="card-header">Table Basic</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table" id="myDataTable">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+
+                    <th>Class</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Date of Joining</th>
+                    <th>Email</th>
+
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+
+
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AspNetUsers.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AspNetUsers.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Class)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DOJ)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AspNetUsers.Email)
+                        </td>
+
+
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="@Url.Action("Edit", "Admin", new { id = item.userid })">
+                                        <i class="bx bx-edit-alt me-2"></i> Edit
+                                    </a>
+                                    <a class="dropdown-item" href="@Url.Action("DeleteTea", "Admin", new { id = item.userid })">
+                                        <i class="bx bx-trash me-2"></i> Delete
+                                    </a>
+                                </div>
+
+                            </div>
+                        </td>
+
+
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#myDataTable').DataTable();
+    });
+</script>

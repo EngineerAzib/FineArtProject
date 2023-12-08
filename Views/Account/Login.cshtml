@@ -1,0 +1,67 @@
+﻿@using FineArtProject.Models
+@model LoginViewModel
+@{
+
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <main aria-labelledby="title">
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card shadow-lg">
+                        <div class="card-body">
+                            <h2 id="title" class="text-center">Log in</h2>
+                            <hr />
+                            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.username)
+                                    @Html.TextBoxFor(m => m.username, new { @class = "form-control", placeholder = "Username" })
+                                    @Html.ValidationMessageFor(m => m.username, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Password)
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        @Html.CheckBoxFor(m => m.RememberMe, new { @class = "custom-control-input", id = "customCheck1" })
+                                        <label class="custom-control-label" for="customCheck1">@Html.LabelFor(m => m.RememberMe) Remember me</label>
+                                    </div>
+                                </div>
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-dark btn-block">Log in</button>
+                                </div>
+                                <p class="text-center">
+                                    @Html.ActionLink("Register as a new user", "Register")
+                                </p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Include Bootstrap and jQuery scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+ 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FineArtProjectnewModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Acadmic_Record">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="student_id" Type="int" Nullable="false" />
+    <Property Name="competition_id" Type="int" Nullable="false" />
+    <Property Name="SubmisionDate" Type="date" Nullable="false" />
+    <Property Name="Marks" Type="float" Nullable="false" />
+    <Property Name="Remarks" Type="nchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ArtworkStudentTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Quotation" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Image" Type="varchar(max)" Nullable="false" />
+    <Property Name="UploadDate" Type="datetime" Nullable="false" />
+    <Property Name="CompititionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" />
+    <Property Name="LastName" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Award">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompetitionId" Type="int" Nullable="false" />
+    <Property Name="Studentid" Type="int" Nullable="false" />
+    <Property Name="AwadDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AwardsIssued">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="student_Id" Type="int" Nullable="false" />
+    <Property Name="competition_Id" Type="int" Nullable="false" />
+    <Property Name="AwardDate" Type="date" Nullable="false" />
+    <Property Name="Remarks" Type="nchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Competition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompetitionName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+    <Property Name="Conditions" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="AwardDetails" Type="nchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StaffComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="art_work_Id" Type="int" Nullable="false" />
+    <Property Name="Mark" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="comments" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="staff_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Address" Type="varchar(max)" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdmissionDate" Type="datetime" Nullable="false" />
+    <Property Name="userid" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DOJ" Type="datetime" Nullable="false" />
+    <Property Name="Class" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="userid" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Phone" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Address" Type="nchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UpcommingExibition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExhibitionName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Acadmic_Record_Competition">
+    <End Role="Competition" Type="Self.Competition" Multiplicity="1" />
+    <End Role="Acadmic_Record" Type="Self.Acadmic_Record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Acadmic_Record">
+        <PropertyRef Name="competition_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Acadmic_Record_student">
+    <End Role="student" Type="Self.student" Multiplicity="1" />
+    <End Role="Acadmic_Record" Type="Self.Acadmic_Record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Acadmic_Record">
+        <PropertyRef Name="student_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArtworkStudentTable_Competition">
+    <End Role="Competition" Type="Self.Competition" Multiplicity="1" />
+    <End Role="ArtworkStudentTable" Type="Self.ArtworkStudentTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ArtworkStudentTable">
+        <PropertyRef Name="CompititionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArtworkStudentTable_student">
+    <End Role="student" Type="Self.student" Multiplicity="1" />
+    <End Role="ArtworkStudentTable" Type="Self.ArtworkStudentTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ArtworkStudentTable">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Award_Competition">
+    <End Role="Competition" Type="Self.Competition" Multiplicity="1" />
+    <End Role="Award" Type="Self.Award" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Award">
+        <PropertyRef Name="CompetitionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Award_student">
+    <End Role="student" Type="Self.student" Multiplicity="1" />
+    <End Role="Award" Type="Self.Award" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Award">
+        <PropertyRef Name="Studentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AwardsIssued_Competition">
+    <End Role="Competition" Type="Self.Competition" Multiplicity="1" />
+    <End Role="AwardsIssued" Type="Self.AwardsIssued" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AwardsIssued">
+        <PropertyRef Name="competition_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AwardsIssued_student">
+    <End Role="student" Type="Self.student" Multiplicity="1" />
+    <End Role="AwardsIssued" Type="Self.AwardsIssued" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AwardsIssued">
+        <PropertyRef Name="student_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StaffComment_ArtworkStudentTable">
+    <End Role="ArtworkStudentTable" Type="Self.ArtworkStudentTable" Multiplicity="1" />
+    <End Role="StaffComment" Type="Self.StaffComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ArtworkStudentTable">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StaffComment">
+        <PropertyRef Name="art_work_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StaffComment_teacher">
+    <End Role="teacher" Type="Self.teacher" Multiplicity="1" />
+    <End Role="StaffComment" Type="Self.StaffComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teacher">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StaffComment">
+        <PropertyRef Name="staff_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_student_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="student" Type="Self.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_teacher_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="teacher" Type="Self.teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="teacher">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FineArtProjectnewModelStoreContainer">
+    <EntitySet Name="Acadmic_Record" EntityType="Self.Acadmic_Record" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArtworkStudentTable" EntityType="Self.ArtworkStudentTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Award" EntityType="Self.Award" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AwardsIssued" EntityType="Self.AwardsIssued" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Competition" EntityType="Self.Competition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StaffComment" EntityType="Self.StaffComment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="teacher" EntityType="Self.teacher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UpcommingExibition" EntityType="Self.UpcommingExibition" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Acadmic_Record_Competition" Association="Self.FK_Acadmic_Record_Competition">
+      <End Role="Competition" EntitySet="Competition" />
+      <End Role="Acadmic_Record" EntitySet="Acadmic_Record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Acadmic_Record_student" Association="Self.FK_Acadmic_Record_student">
+      <End Role="student" EntitySet="student" />
+      <End Role="Acadmic_Record" EntitySet="Acadmic_Record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArtworkStudentTable_Competition" Association="Self.FK_ArtworkStudentTable_Competition">
+      <End Role="Competition" EntitySet="Competition" />
+      <End Role="ArtworkStudentTable" EntitySet="ArtworkStudentTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArtworkStudentTable_student" Association="Self.FK_ArtworkStudentTable_student">
+      <End Role="student" EntitySet="student" />
+      <End Role="ArtworkStudentTable" EntitySet="ArtworkStudentTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Award_Competition" Association="Self.FK_Award_Competition">
+      <End Role="Competition" EntitySet="Competition" />
+      <End Role="Award" EntitySet="Award" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Award_student" Association="Self.FK_Award_student">
+      <End Role="student" EntitySet="student" />
+      <End Role="Award" EntitySet="Award" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AwardsIssued_Competition" Association="Self.FK_AwardsIssued_Competition">
+      <End Role="Competition" EntitySet="Competition" />
+      <End Role="AwardsIssued" EntitySet="AwardsIssued" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AwardsIssued_student" Association="Self.FK_AwardsIssued_student">
+      <End Role="student" EntitySet="student" />
+      <End Role="AwardsIssued" EntitySet="AwardsIssued" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StaffComment_ArtworkStudentTable" Association="Self.FK_StaffComment_ArtworkStudentTable">
+      <End Role="ArtworkStudentTable" EntitySet="ArtworkStudentTable" />
+      <End Role="StaffComment" EntitySet="StaffComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StaffComment_teacher" Association="Self.FK_StaffComment_teacher">
+      <End Role="teacher" EntitySet="teacher" />
+      <End Role="StaffComment" EntitySet="StaffComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_student_AspNetUsers" Association="Self.FK_student_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="student" EntitySet="student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_teacher_AspNetUsers" Association="Self.FK_teacher_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="teacher" EntitySet="teacher" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

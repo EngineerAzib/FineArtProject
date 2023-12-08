@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FineArtProjectnewModelStoreContainer" CdmEntityContainer="FineArtProjectnewEntities">
+    <EntitySetMapping Name="student">
+      <EntityTypeMapping TypeName="FineArtProjectnewModel.student">
+        <MappingFragment StoreEntitySet="student">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="AdmissionDate" ColumnName="AdmissionDate" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="FineArtProjectnewModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teacher">
+      <EntityTypeMapping TypeName="FineArtProjectnewModel.teacher">
+        <MappingFragment StoreEntitySet="teacher">
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Acadmic_Record">
+      <EntityTypeMapping TypeName="FineArtProjectnewModel.Acadmic_Record">
+        <MappingFragment StoreEntitySet="Acadmic_Record">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Marks" ColumnName="Marks" />
+          <ScalarProperty Name="SubmisionDate" ColumnName="SubmisionDate" />
+          <ScalarProperty Name="competition_id" ColumnName="competition_id" />
+          <ScalarProperty Name="student_id" ColumnName="student_id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Competition">
+      <EntityTypeMapping TypeName="FineArtProjectnewModel.Competition">
+        <MappingFragment StoreEntitySet="Competition">
+          <ScalarProperty Name="AwardDetails" ColumnName="AwardDetails" />
+          <ScalarProperty Name="Conditions" ColumnName="Conditions" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="CompetitionName" ColumnName="CompetitionName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AwardsIssued">
+      <EntityTypeMapping TypeName="FineArtProjectnewModel.AwardsIssued">
+        <MappingFragment StoreEntitySet="AwardsIssued">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="AwardDate" ColumnName="AwardDate" />
+          <ScalarProperty Name="competition_Id" ColumnName="competition_Id" />
+          <ScalarProperty Name="student_Id" ColumnName="student_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UpcommingExibition">
+      <EntityTypeMapping TypeName="FineArtProjectnewModel.UpcommingExibition">
+        <MappingFragment StoreEntitySet="UpcommingExibition">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="ExhibitionName" ColumnName="ExhibitionName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArtworkStudentTable">
+      <EntityTypeMapping TypeName="FineArtProjectnewModel.ArtworkStudentTable">
+        <MappingFragment StoreEntitySet="ArtworkStudentTable">
+          <ScalarProperty Name="CompititionId" ColumnName="CompititionId" />
+          <ScalarProperty Name="UploadDate" ColumnName="UploadDate" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Quotation" ColumnName="Quotation" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Award">
+      <EntityTypeMapping TypeName="FineArtProjectnewModel.Award">
+        <MappingFragment StoreEntitySet="Award">
+          <ScalarProperty Name="AwadDate" ColumnName="AwadDate" />
+          <ScalarProperty Name="Studentid" ColumnName="Studentid" />
+          <ScalarProperty Name="CompetitionId" ColumnName="CompetitionId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StaffComment">
+      <EntityTypeMapping TypeName="FineArtProjectnewModel.StaffComment">
+        <MappingFragment StoreEntitySet="StaffComment">
+          <ScalarProperty Name="staff_id" ColumnName="staff_id" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+          <ScalarProperty Name="Mark" ColumnName="Mark" />
+          <ScalarProperty Name="art_work_Id" ColumnName="art_work_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

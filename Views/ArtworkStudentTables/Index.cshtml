@@ -1,0 +1,102 @@
+﻿@model IEnumerable<FineArtProject.Context.ArtworkStudentTable>
+
+<style>
+    /* Style the search input and button */
+    .input-group {
+        width: 300px; /* Adjust the width as needed */
+    }
+
+    #searchInput {
+        border-radius: 0;
+    }
+
+    #searchButton {
+        border-radius: 0;
+    }
+</style>
+
+<div class="container-fluid pt-4 px-4 mt-5">
+    <div class="bg-light text-center rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h6 class="mb-0">Competition Details</h6>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search..." id="searchInput">
+                <button class="btn btn-primary" type="button" id="searchButton">Search</button>
+            </div>
+
+        </div>
+        <div class="table-responsive">
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                <thead>
+                    <tr class="text-dark">
+                        <th scope="col"> @Html.DisplayNameFor(model => model.Title)</th>
+                        <th scope="col"> @Html.DisplayNameFor(model => model.Description)</th>
+                        <th scope="col"> @Html.DisplayNameFor(model => model.Quotation)</th>
+                        <th scope="col"> @Html.DisplayNameFor(model => model.Image)</th>
+                        <th scope="col"> @Html.DisplayNameFor(model => model.UploadDate)</th>
+                        <th scope="col"> @Html.DisplayNameFor(model => model.Competition.CompetitionName)</th>
+                        <th scope="col"> @Html.DisplayNameFor(model => model.student.AspNetUsers.FirstName)</th>
+                       
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>  @Html.DisplayFor(modelItem => item.Title)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Quotation)
+                            </td>
+                            <td>
+                                <img src="@Url.Content(item.Image)" class="img-fluid" width="100" height="130" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UploadDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Competition.CompetitionName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.student.AspNetUsers.FirstName)
+                            </td>
+
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                               
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@section scripts {
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#searchButton").on("click", function () {
+                var searchText = $("#searchInput").val().toLowerCase();
+                $("table tbody tr").each(function () {
+                    var rowText = $(this).text().toLowerCase();
+                    if (rowText.includes(searchText) || searchText === "") {
+                        $(this).show();
+                    } else {
+                        <a href="~/Views/ArtworkStudentTables/Index.cshtml">~/Views/ArtworkStudentTables/Index.cshtml</a>
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
+}
+
+
+
+

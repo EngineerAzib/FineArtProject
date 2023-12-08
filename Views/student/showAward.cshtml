@@ -1,0 +1,78 @@
+﻿@model IEnumerable<FineArtProject.Context.Award>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Awards</title>
+    <style>
+        /* Style the search input and button */
+        .input-group {
+            width: 300px; /* Adjust the width as needed */
+        }
+
+        #searchInput {
+            border-radius: 0;
+        }
+
+        #searchButton {
+            border-radius: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid pt-4 px-4 mt-5">
+        <div class="bg-light text-center rounded p-4">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h6 class="mb-0">Show Award</h6>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search..." id="searchInput">
+                    <button class="btn btn-primary" type="button" id="searchButton">Search</button>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table text-start align-middle table-bordered table-hover mb-0">
+                    <thead>
+                        <tr class="text-dark">
+                            <th scope="col">Student First Name</th>
+                            <th scope="col">Competition Name</th>
+                            <th scope="col">Award Details</th>
+                            <th scope="col">Winner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.student.AspNetUsers.FirstName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Competition.CompetitionName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Competition.AwardDetails)</td>
+                                <td>
+                                    <button class="btn btn-outline-gray">Winner</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#searchButton").on("click", function () {
+                var searchText = $("#searchInput").val().toLowerCase();
+                $("table tbody tr").each(function () {
+                    var rowText = $(this).text().toLowerCase();
+                    if (rowText.includes(searchText) || searchText === "") {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

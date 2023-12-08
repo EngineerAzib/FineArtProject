@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FineArtProjectnewModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdmissionDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="userid" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="FineArtProjectnewModel.FK_student_AspNetUsers" FromRole="student" ToRole="AspNetUsers" />
+    <NavigationProperty Name="Acadmic_Record" Relationship="FineArtProjectnewModel.FK_Acadmic_Record_student" FromRole="student" ToRole="Acadmic_Record" />
+    <NavigationProperty Name="AwardsIssued" Relationship="FineArtProjectnewModel.FK_AwardsIssued_student" FromRole="student" ToRole="AwardsIssued" />
+    <NavigationProperty Name="ArtworkStudentTable" Relationship="FineArtProjectnewModel.FK_ArtworkStudentTable_student" FromRole="student" ToRole="ArtworkStudentTable" />
+    <NavigationProperty Name="Award" Relationship="FineArtProjectnewModel.FK_Award_student" FromRole="student" ToRole="Award" />
+  </EntityType>
+  <EntityContainer Name="FineArtProjectnewEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="student" EntityType="Self.student" />
+    <EntitySet Name="AspNetUsers" EntityType="FineArtProjectnewModel.AspNetUsers" />
+    <AssociationSet Name="FK_student_AspNetUsers" Association="FineArtProjectnewModel.FK_student_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="student" EntitySet="student" />
+    </AssociationSet>
+    <EntitySet Name="teacher" EntityType="FineArtProjectnewModel.teacher" />
+    <AssociationSet Name="FK_teacher_AspNetUsers" Association="FineArtProjectnewModel.FK_teacher_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="teacher" EntitySet="teacher" />
+    </AssociationSet>
+    <EntitySet Name="Acadmic_Record" EntityType="FineArtProjectnewModel.Acadmic_Record" />
+    <EntitySet Name="Competition" EntityType="FineArtProjectnewModel.Competition" />
+    <AssociationSet Name="FK_Acadmic_Record_Competition" Association="FineArtProjectnewModel.FK_Acadmic_Record_Competition">
+      <End Role="Competition" EntitySet="Competition" />
+      <End Role="Acadmic_Record" EntitySet="Acadmic_Record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Acadmic_Record_student" Association="FineArtProjectnewModel.FK_Acadmic_Record_student">
+      <End Role="student" EntitySet="student" />
+      <End Role="Acadmic_Record" EntitySet="Acadmic_Record" />
+    </AssociationSet>
+    <EntitySet Name="AwardsIssued" EntityType="FineArtProjectnewModel.AwardsIssued" />
+    <AssociationSet Name="FK_AwardsIssued_Competition" Association="FineArtProjectnewModel.FK_AwardsIssued_Competition">
+      <End Role="Competition" EntitySet="Competition" />
+      <End Role="AwardsIssued" EntitySet="AwardsIssued" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AwardsIssued_student" Association="FineArtProjectnewModel.FK_AwardsIssued_student">
+      <End Role="student" EntitySet="student" />
+      <End Role="AwardsIssued" EntitySet="AwardsIssued" />
+    </AssociationSet>
+    <EntitySet Name="UpcommingExibition" EntityType="FineArtProjectnewModel.UpcommingExibition" />
+    <EntitySet Name="ArtworkStudentTable" EntityType="FineArtProjectnewModel.ArtworkStudentTable" />
+    <AssociationSet Name="FK_ArtworkStudentTable_Competition" Association="FineArtProjectnewModel.FK_ArtworkStudentTable_Competition">
+      <End Role="Competition" EntitySet="Competition" />
+      <End Role="ArtworkStudentTable" EntitySet="ArtworkStudentTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArtworkStudentTable_student" Association="FineArtProjectnewModel.FK_ArtworkStudentTable_student">
+      <End Role="student" EntitySet="student" />
+      <End Role="ArtworkStudentTable" EntitySet="ArtworkStudentTable" />
+    </AssociationSet>
+    <EntitySet Name="Award" EntityType="FineArtProjectnewModel.Award" />
+    <AssociationSet Name="FK_Award_Competition" Association="FineArtProjectnewModel.FK_Award_Competition">
+      <End Role="Competition" EntitySet="Competition" />
+      <End Role="Award" EntitySet="Award" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Award_student" Association="FineArtProjectnewModel.FK_Award_student">
+      <End Role="student" EntitySet="student" />
+      <End Role="Award" EntitySet="Award" />
+    </AssociationSet>
+    <EntitySet Name="StaffComment" EntityType="FineArtProjectnewModel.StaffComment" />
+    <AssociationSet Name="FK_StaffComment_ArtworkStudentTable" Association="FineArtProjectnewModel.FK_StaffComment_ArtworkStudentTable">
+      <End Role="ArtworkStudentTable" EntitySet="ArtworkStudentTable" />
+      <End Role="StaffComment" EntitySet="StaffComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StaffComment_teacher" Association="FineArtProjectnewModel.FK_StaffComment_teacher">
+      <End Role="teacher" EntitySet="teacher" />
+      <End Role="StaffComment" EntitySet="StaffComment" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="student" Relationship="FineArtProjectnewModel.FK_student_AspNetUsers" FromRole="AspNetUsers" ToRole="student" />
+    <NavigationProperty Name="teacher" Relationship="FineArtProjectnewModel.FK_teacher_AspNetUsers" FromRole="AspNetUsers" ToRole="teacher" />
+  </EntityType>
+  <Association Name="FK_student_AspNetUsers">
+    <End Type="FineArtProjectnewModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+    <End Type="FineArtProjectnewModel.student" Role="student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DOJ" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Class" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="userid" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="FineArtProjectnewModel.FK_teacher_AspNetUsers" FromRole="teacher" ToRole="AspNetUsers" />
+    <NavigationProperty Name="StaffComment" Relationship="FineArtProjectnewModel.FK_StaffComment_teacher" FromRole="teacher" ToRole="StaffComment" />
+  </EntityType>
+  <Association Name="FK_teacher_AspNetUsers">
+    <End Type="FineArtProjectnewModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+    <End Type="FineArtProjectnewModel.teacher" Role="teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="teacher">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Acadmic_Record">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="student_id" Type="Int32" Nullable="false" />
+    <Property Name="competition_id" Type="Int32" Nullable="false" />
+    <Property Name="SubmisionDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Marks" Type="Double" Nullable="false" />
+    <Property Name="Remarks" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Competition" Relationship="FineArtProjectnewModel.FK_Acadmic_Record_Competition" FromRole="Acadmic_Record" ToRole="Competition" />
+    <NavigationProperty Name="student" Relationship="FineArtProjectnewModel.FK_Acadmic_Record_student" FromRole="Acadmic_Record" ToRole="student" />
+  </EntityType>
+  <EntityType Name="Competition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompetitionName" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Conditions" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="AwardDetails" Type="String" Nullable="false" MaxLength="200" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Acadmic_Record" Relationship="FineArtProjectnewModel.FK_Acadmic_Record_Competition" FromRole="Competition" ToRole="Acadmic_Record" />
+    <NavigationProperty Name="AwardsIssued" Relationship="FineArtProjectnewModel.FK_AwardsIssued_Competition" FromRole="Competition" ToRole="AwardsIssued" />
+    <NavigationProperty Name="ArtworkStudentTable" Relationship="FineArtProjectnewModel.FK_ArtworkStudentTable_Competition" FromRole="Competition" ToRole="ArtworkStudentTable" />
+    <NavigationProperty Name="Award" Relationship="FineArtProjectnewModel.FK_Award_Competition" FromRole="Competition" ToRole="Award" />
+  </EntityType>
+  <Association Name="FK_Acadmic_Record_Competition">
+    <End Type="FineArtProjectnewModel.Competition" Role="Competition" Multiplicity="1" />
+    <End Type="FineArtProjectnewModel.Acadmic_Record" Role="Acadmic_Record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Acadmic_Record">
+        <PropertyRef Name="competition_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Acadmic_Record_student">
+    <End Type="FineArtProjectnewModel.student" Role="student" Multiplicity="1" />
+    <End Type="FineArtProjectnewModel.Acadmic_Record" Role="Acadmic_Record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Acadmic_Record">
+        <PropertyRef Name="student_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AwardsIssued">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="student_Id" Type="Int32" Nullable="false" />
+    <Property Name="competition_Id" Type="Int32" Nullable="false" />
+    <Property Name="AwardDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Remarks" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Competition" Relationship="FineArtProjectnewModel.FK_AwardsIssued_Competition" FromRole="AwardsIssued" ToRole="Competition" />
+    <NavigationProperty Name="student" Relationship="FineArtProjectnewModel.FK_AwardsIssued_student" FromRole="AwardsIssued" ToRole="student" />
+  </EntityType>
+  <Association Name="FK_AwardsIssued_Competition">
+    <End Type="FineArtProjectnewModel.Competition" Role="Competition" Multiplicity="1" />
+    <End Type="FineArtProjectnewModel.AwardsIssued" Role="AwardsIssued" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AwardsIssued">
+        <PropertyRef Name="competition_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AwardsIssued_student">
+    <End Type="FineArtProjectnewModel.student" Role="student" Multiplicity="1" />
+    <End Type="FineArtProjectnewModel.AwardsIssued" Role="AwardsIssued" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AwardsIssued">
+        <PropertyRef Name="student_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UpcommingExibition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExhibitionName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ArtworkStudentTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Quotation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Image" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UploadDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CompititionId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Competition" Relationship="FineArtProjectnewModel.FK_ArtworkStudentTable_Competition" FromRole="ArtworkStudentTable" ToRole="Competition" />
+    <NavigationProperty Name="student" Relationship="FineArtProjectnewModel.FK_ArtworkStudentTable_student" FromRole="ArtworkStudentTable" ToRole="student" />
+    <NavigationProperty Name="StaffComment" Relationship="FineArtProjectnewModel.FK_StaffComment_ArtworkStudentTable" FromRole="ArtworkStudentTable" ToRole="StaffComment" />
+  </EntityType>
+  <Association Name="FK_ArtworkStudentTable_Competition">
+    <End Type="FineArtProjectnewModel.Competition" Role="Competition" Multiplicity="1" />
+    <End Type="FineArtProjectnewModel.ArtworkStudentTable" Role="ArtworkStudentTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ArtworkStudentTable">
+        <PropertyRef Name="CompititionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArtworkStudentTable_student">
+    <End Type="FineArtProjectnewModel.student" Role="student" Multiplicity="1" />
+    <End Type="FineArtProjectnewModel.ArtworkStudentTable" Role="ArtworkStudentTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ArtworkStudentTable">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Award">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompetitionId" Type="Int32" Nullable="false" />
+    <Property Name="Studentid" Type="Int32" Nullable="false" />
+    <Property Name="AwadDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Competition" Relationship="FineArtProjectnewModel.FK_Award_Competition" FromRole="Award" ToRole="Competition" />
+    <NavigationProperty Name="student" Relationship="FineArtProjectnewModel.FK_Award_student" FromRole="Award" ToRole="student" />
+  </EntityType>
+  <Association Name="FK_Award_Competition">
+    <End Type="FineArtProjectnewModel.Competition" Role="Competition" Multiplicity="1" />
+    <End Type="FineArtProjectnewModel.Award" Role="Award" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Award">
+        <PropertyRef Name="CompetitionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Award_student">
+    <End Type="FineArtProjectnewModel.student" Role="student" Multiplicity="1" />
+    <End Type="FineArtProjectnewModel.Award" Role="Award" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Award">
+        <PropertyRef Name="Studentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="StaffComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="art_work_Id" Type="Int32" Nullable="false" />
+    <Property Name="Mark" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="comments" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="staff_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ArtworkStudentTable" Relationship="FineArtProjectnewModel.FK_StaffComment_ArtworkStudentTable" FromRole="StaffComment" ToRole="ArtworkStudentTable" />
+    <NavigationProperty Name="teacher" Relationship="FineArtProjectnewModel.FK_StaffComment_teacher" FromRole="StaffComment" ToRole="teacher" />
+  </EntityType>
+  <Association Name="FK_StaffComment_ArtworkStudentTable">
+    <End Type="FineArtProjectnewModel.ArtworkStudentTable" Role="ArtworkStudentTable" Multiplicity="1" />
+    <End Type="FineArtProjectnewModel.StaffComment" Role="StaffComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ArtworkStudentTable">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StaffComment">
+        <PropertyRef Name="art_work_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StaffComment_teacher">
+    <End Type="FineArtProjectnewModel.teacher" Role="teacher" Multiplicity="1" />
+    <End Type="FineArtProjectnewModel.StaffComment" Role="StaffComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teacher">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StaffComment">
+        <PropertyRef Name="staff_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

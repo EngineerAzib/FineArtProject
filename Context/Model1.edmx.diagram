@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="86c71a32875a4c318973756e72d8e892" Name="Diagram1">
+        <EntityTypeShape EntityType="FineArtProjectnewModel.student" Width="1.5" PointX="0.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FineArtProjectnewModel.AspNetUsers" Width="1.5" PointX="3.125" PointY="0.875" />
+        <AssociationConnector Association="FineArtProjectnewModel.FK_student_AspNetUsers" />
+        <EntityTypeShape EntityType="FineArtProjectnewModel.teacher" Width="1.5" PointX="2.625" PointY="5.5" />
+        <AssociationConnector Association="FineArtProjectnewModel.FK_teacher_AspNetUsers" />
+        <EntityTypeShape EntityType="FineArtProjectnewModel.Competition" Width="1.5" PointX="1.5" PointY="9.125" />
+        <EntityTypeShape EntityType="FineArtProjectnewModel.AwardsIssued" Width="1.5" PointX="5.75" PointY="1.125" />
+        <AssociationConnector Association="FineArtProjectnewModel.FK_AwardsIssued_Competition" />
+        <AssociationConnector Association="FineArtProjectnewModel.FK_AwardsIssued_student" />
+        <EntityTypeShape EntityType="FineArtProjectnewModel.UpcommingExibition" Width="1.5" PointX="8.25" PointY="1" />
+        <EntityTypeShape EntityType="FineArtProjectnewModel.ArtworkStudentTable" Width="1.5" PointX="5.5" PointY="8.75" />
+        <AssociationConnector Association="FineArtProjectnewModel.FK_ArtworkStudentTable_Competition" />
+        <AssociationConnector Association="FineArtProjectnewModel.FK_ArtworkStudentTable_student" />
+        <EntityTypeShape EntityType="FineArtProjectnewModel.Award" Width="1.5" PointX="7" PointY="5.25" />
+        <AssociationConnector Association="FineArtProjectnewModel.FK_Award_Competition" />
+        <AssociationConnector Association="FineArtProjectnewModel.FK_Award_student" />
+        <EntityTypeShape EntityType="FineArtProjectnewModel.StaffComment" Width="1.5" PointX="7.875" PointY="8.75" />
+        <AssociationConnector Association="FineArtProjectnewModel.FK_StaffComment_ArtworkStudentTable" />
+        <AssociationConnector Association="FineArtProjectnewModel.FK_StaffComment_teacher" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,94 @@
+﻿
+@{ Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+}
+@model IEnumerable<FineArtProject.Context.teacher>
+<style>
+    /* Style the search input and button */
+    .input-group {
+        width: 300px; /* Adjust the width as needed */
+    }
+
+    #searchInput {
+        border-radius: 0;
+    }
+
+    #searchButton {
+        border-radius: 0;
+    }
+</style>
+
+<div class="container-fluid pt-4 px-4 mt-5">
+    <div class="bg-light text-center rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h6 class="mb-0">UpcommingExibitions</h6>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search..." id="searchInput">
+                <button class="btn btn-primary" type="button" id="searchButton">Search</button>
+            </div>
+            >
+        </div>
+        <div class="table-responsive">
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                <thead>
+                    <tr class="text-dark">
+                        <th scope="col">  @Html.DisplayNameFor(model => model.AspNetUsers.FirstName)</th>
+                        <th scope="col"> @Html.DisplayNameFor(model => model.AspNetUsers.LastName)</th>
+                        <th scope="col">  @Html.DisplayNameFor(model => model.AspNetUsers.Email)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.Address)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.DOJ)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.Phone)</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>  @Html.DisplayFor(modelItem => item.AspNetUsers.FirstName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.AspNetUsers.LastName)</td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AspNetUsers.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DOJ)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Phone)
+                            </td>
+
+
+                           
+                        </tr>
+                    }
+                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#searchButton").on("click", function () {
+                var searchText = $("#searchInput").val().toLowerCase();
+                $("table tbody tr").each(function () {
+                    var rowText = $(this).text().toLowerCase();
+                    if (rowText.includes(searchText) || searchText === "") {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
+}
+
+
+
